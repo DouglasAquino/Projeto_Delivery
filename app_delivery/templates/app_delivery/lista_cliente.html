@@ -1,0 +1,21 @@
+{% extends 'app_delivery/base.html' %}
+
+{% block conteudo %}
+
+<div class="text-white">
+    <h1>Cardápio</h1>
+    <div class="container" >
+
+        {% for prato in lista_pratos %}
+            <h5 style="background-color: rgba(0, 0, 0, 0.6)">
+            Prato: {{ prato.nome }}
+            <br>Descrição: {{ prato.descricao }}
+            <br>Valor: R${{ prato.valor }}</h5>
+        {% endfor %}
+                
+        <p><br><a type="button" class="btn btn-success" href="{% url 'meu_pedido' %}">Meus Pedidos</a>
+        <a type="button" class="btn btn-warning" href="{% url 'fazer_pedido' %}">Fazer Pedidos</a></p>
+
+    </div>
+    </div>
+{% endblock %}

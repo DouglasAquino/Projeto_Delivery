@@ -1,0 +1,24 @@
+{% extends 'app_delivery/base.html' %}
+
+{% block conteudo %}
+<div class="text-white" >    
+
+<h1 >Cadastro de Prato</h1>
+    <div class="container"style="background-color: rgba(0, 0, 0, 0.6)" >
+        <div class="row" >
+
+            <form action="{% url 'cadastrar_prato' %}" method="POST">
+                <div class="container" style="width: 200px;">        
+                {% csrf_token %}
+                {{ form }}
+
+                </div>
+        </div>
+    <br>
+    </div>
+        <p><br><input class="btn btn-warning" type="submit" value="Cadastrar"></p>
+</div>
+            </form>
+
+{% endblock %}
+

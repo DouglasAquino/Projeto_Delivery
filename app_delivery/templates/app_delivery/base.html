@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Delivery</title>
+    <style>
+    body, html {
+  height: 100%;
+}
+.bg {
+  background-image: url("https://s1.1zoom.me/big0/620/Fast_food_Hamburger_Vegetables_Fire_Two_520128_1280x853.jpg");
+
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+</head>
+
+<body >
+    <div class="bg" >
+    
+    {% if user.is_authenticated %}
+        <h4 class="text-white">Olá {{ user.username }}, seja bem vindo(a)! <a href="{% url 'logout' %}">Sair</a></h4>
+    {% endif %}
+    <div class="container">
+        {% block conteudo %}
+
+        {% endblock %}
+    </div>
+    </div>
+
+</body>
+</html>
+
+
+

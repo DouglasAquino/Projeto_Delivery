@@ -1,0 +1,21 @@
+{% extends 'app_delivery/base.html' %}
+
+{% block conteudo %}
+<div class="text-white">
+    <h1>Lista de Pratos Cadastrados</h1>
+    <div class="container">
+        {% for prato in lista_pratos %}
+            <h5 style="background-color: rgba(0, 0, 0, 0.6)">Prato: {{ prato.nome }}
+            <br>Descrição: {{ prato.descricao }}
+            <br>Valor: {{ prato.valor }}
+            <a class="badge badge-danger" href="{% url 'delete_prato' prato.id %}">Delete</a></h5>
+        {% endfor %}
+
+    </div>
+      </div>           
+    
+        <br><a type="button" class="btn btn-success" href="{% url 'cadastrar_prato' %}">Cadastrar Prato<a>
+        <a type="button" class="btn btn-warning" href="{% url 'lista_pedidos' %}">Pedidos Abertos</a>
+    
+    
+{% endblock %}

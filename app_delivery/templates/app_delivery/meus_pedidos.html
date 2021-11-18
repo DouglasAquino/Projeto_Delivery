@@ -1,0 +1,22 @@
+{% extends 'app_delivery/base.html' %}
+
+{% block conteudo %}
+
+<div class="text-white">
+    <h1>Meus Pedidos</h1>
+    <div class="container">
+        {% for pedido in meu_pedido %}
+            <h5 style="background-color: rgba(100, 0, 0, 0.6)">
+            Nome:  {{ pedido.cliente.nome }}</h5>
+            {% for prato in pedido.prato.all %}
+            <h5 style="background-color: rgba(0, 0, 0, 0.6)">
+            Prato: {{ prato.nome }}
+            <br>Descrição: {{ prato.descricao }}
+            <br>Preço: {{ prato.valor }}</h5>
+            {% endfor %}  
+        {% endfor %}
+    
+    </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'app_delivery/base.html' %}
+
+{% block conteudo %}
+<div class="text-white" >    
+    <h1>Lista de Pedidos</h1>
+
+    <div class="container" >
+    {% for pedido in lista_pedidos %}
+        <h5  style="background-color: rgba(0, 0, 0, 0.6)">
+        
+            Cliente: {{ pedido.cliente.nome }}
+            {% for prato in pedido.prato.all %}
+                <br>Prato: {{ prato.nome }}
+                <br>Descrição: {{ prato.descricao }}
+            {% endfor %}  
+            
+        <br>Status: {{ pedido.get_status_display }}</h5> 
+
+        <p><a id='pedido' class="badge badge-primary" href="{% url 'aceitar_pedido' pedido.id %}">Aceitar Pedido</a>
+
+        {% if pedido.aceitar %}
+        <span>
+            <a class="badge badge-success" href="{% url 'pronto_pedido' pedido.id %}">Pedido Pronto</a>
+        </span>
+        {% endif%}
+
+        {% if pedido.pronto %}
+        <span>
+            <a class="badge badge-dark" href="{% url 'atendimento_pedido' pedido.id %}">Atendimento Concluido</a></p>
+        </span>
+        {% endif%}
+    {% endfor %}
+    
+    </div>
+    </div>
+
+{% endblock %}

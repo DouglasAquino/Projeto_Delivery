@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Login</title>
+    <style>
+    body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("https://s1.1zoom.me/big0/620/Fast_food_Hamburger_Vegetables_Fire_Two_520128_1280x853.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+<div class="bg" >
+    <div class="text-white">   
+    <div class="container" class="mx-auto" style="width: 200px;">
+    <h1>Cliente</h1>
+
+    <form action="{% url 'cadastrar_cliente' %}" method="POST">
+    <div style="background-color: rgba(0, 0, 0, 0.6)">
+
+        {% csrf_token %}
+        {{ form }}
+    </div>
+        <p><br><input class="btn btn-warning" type="submit" value="Cadastrar" style="width: 170px;"><p>
+        
+    
+    </form>
+    </div>
+    </div>
+
+</div>
+</body>
+</html>
